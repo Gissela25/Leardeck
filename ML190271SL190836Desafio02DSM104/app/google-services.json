@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705951668338",
+    "project_id": "learndeck-91b59",
+    "storage_bucket": "learndeck-91b59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705951668338:android:6923ea20a72944a682caeb",
+        "android_client_info": {
+          "package_name": "com.dsm104.ml190272sl190836.learndeck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705951668338-qtmnl814srj0j7agf66v9ai6aphmvr77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoplQ6flJEYcTE_KdVnpYqeVv8FiNB0Yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705951668338-qtmnl814srj0j7agf66v9ai6aphmvr77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
