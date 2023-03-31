@@ -26,18 +26,45 @@ class CrearCuentaActivity : AppCompatActivity() {
         val etclave : TextView = findViewById(R.id.EtClave)
         val etclavev : TextView = findViewById(R.id.EtClaveVerificar)
         val bcrearcuenta : Button = findViewById(R.id.BCrearCuenta)
+        val biniciars : TextView = findViewById(R.id.TVISesion)
 
-        bcrearcuenta.setOnClickListener()
-        {
-            var clave = etclave.text.toString()
-            var clave2 = etclavev.text.toString()
-            if(clave.equals(clave2)){
-                crearCuenta(etnombre.text.toString(),etusuario.text.toString(),etclave.text.toString())
-            } else {
-                Toast.makeText(baseContext, "Error:Los passwords no coinciden", Toast.LENGTH_SHORT)
-                    .show()
-                etclave.requestFocus()
+        bcrearcuenta.setOnClickListener {
+            val nombre = etnombre.text.toString().trim()
+            val usuario = etusuario.text.toString().trim()
+            val clave = etclave.text.toString().trim()
+            val clavev = etclavev.text.toString().trim()
+
+            if (nombre.isEmpty() || usuario.isEmpty() || clave.isEmpty() || clavev.isEmpty()) {
+                Toast.makeText(baseContext, "Por favor, llene todos los campos.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+            if (!nombre.matches("[a-zA-Z]+".toRegex())) {
+                Toast.makeText(baseContext, "El nombre solo puede contener letras.", Toast.LENGTH_SHORT).show()
+                etnombre.requestFocus()
+                return@setOnClickListener
+            }
+            if (!usuario.matches("[a-zA-Z0-9]+".toRegex())) {
+                Toast.makeText(baseContext, "El nombre de usuario solo puede contener letras y números.", Toast.LENGTH_SHORT).show()
+                etusuario.requestFocus()
+                return@setOnClickListener
+            }
+            if (clave.length < 6) {
+                Toast.makeText(baseContext, "La contraseña debe tener al menos 6 caracteres.", Toast.LENGTH_SHORT).show()
+                etclave.requestFocus()
+                return@setOnClickListener
+            }
+            if (clave != clavev) {
+                Toast.makeText(baseContext, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show()
+                etclave.requestFocus()
+                return@setOnClickListener
+            }
+
+            crearCuenta(nombre, usuario, clave)
+        }
+        biniciars.setOnClickListener()
+        {
+            val i = Intent(this,IniciarSesionActivity::class.java)
+            startActivity(i)
         }
         firebaseAuth = Firebase.auth
     }
@@ -50,25 +77,19 @@ class CrearCuentaActivity : AppCompatActivity() {
                         .show()
                     val userId = firebaseAuth.currentUser?.uid
 
-                    // Crear una instancia de la base de datos de Firebase
                     val database = FirebaseDatabase.getInstance()
 
-                    // Obtener una referencia al nodo de usuarios
                     val usersRef = database.getReference("users")
 
-                    // Crear un mapa con los detalles del usuario
                     val userDetails = mapOf(
                         "username" to nusuario,
                         "email" to firebasecorreo
                     )
 
-                    // Guardar los detalles del usuario en la base de datos
                     userId?.let { usersRef.child(it).setValue(userDetails) }
 
-                    // Guardar el nombre del usuario en la base de datos
                     userId?.let { usersRef.child(it).child("name").setValue(nombre) }
 
-                    // Iniciar la actividad principal y limpiar los campos de entrada
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     findViewById<TextView>(R.id.EtNombre).setText("")

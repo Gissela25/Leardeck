@@ -25,9 +25,10 @@ class IniciarSesionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_iniciar_sesion)
         supportActionBar?.hide()
 
-        val etusuario : TextView = findViewById(R.id.EtUsuario)
-        val etclave : TextView = findViewById(R.id.EtClave)
-        val biniciar : Button = findViewById(R.id.BIniciarSesion)
+        val etusuario: TextView = findViewById(R.id.EtUsuario)
+        val etclave: TextView = findViewById(R.id.EtClave)
+        val biniciar: Button = findViewById(R.id.BIniciarSesion)
+        val bCuenta: TextView = findViewById(R.id.TVCrearC)
 
         firebaseAuth = Firebase.auth
         database = FirebaseDatabase.getInstance()
@@ -36,11 +37,27 @@ class IniciarSesionActivity : AppCompatActivity() {
         {
             val nusuario = etusuario.text.toString().trim()
             val clave = etclave.text.toString().trim()
-            if (nusuario.matches("[A-Za-z0-9]+".toRegex())) {
-                IniciarS(nusuario, clave)
-            } else {
-                Toast.makeText(baseContext, "El usuario debe contener solo letras y números", Toast.LENGTH_SHORT).show()
+
+            if (nusuario.isEmpty() || clave.isEmpty()) {
+                Toast.makeText(baseContext, "Por favor, llene todos los campos.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+            if (!nusuario.matches("[a-zA-Z0-9]+".toRegex())) {
+                Toast.makeText(baseContext, "El nombre de usuario solo puede contener letras y números.", Toast.LENGTH_SHORT).show()
+                etusuario.requestFocus()
+                return@setOnClickListener
+            }
+            if (clave.length < 6) {
+                Toast.makeText(baseContext, "La contraseña debe tener al menos 6 caracteres.", Toast.LENGTH_SHORT).show()
+                etclave.requestFocus()
+                return@setOnClickListener
+            }
+            IniciarS(etusuario.text.toString(),etclave.text.toString())
+        }
+        bCuenta.setOnClickListener()
+        {
+            val i = Intent(this, CrearCuentaActivity::class.java)
+            startActivity(i)
         }
     }
 
@@ -52,14 +69,18 @@ class IniciarSesionActivity : AppCompatActivity() {
                     val user = firebaseAuth.currentUser
                     val uid = user!!.uid
                     val userRef = database.getReference("users").child(uid)
-                    userRef.addListenerForSingleValueEvent(object: ValueEventListener {
+                    userRef.addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             val name = snapshot.child("name").value.toString()
                             if (name == "admin") {
-                                val i = Intent(this@IniciarSesionActivity,AdministradorActivity::class.java)
+                                val i = Intent(
+                                    this@IniciarSesionActivity,
+                                    AdministradorActivity::class.java
+                                )
                                 startActivity(i)
                             } else {
-                                val i = Intent(this@IniciarSesionActivity, UsuariosActivity::class.java)
+                                val i =
+                                    Intent(this@IniciarSesionActivity, UsuariosActivity::class.java)
                                 startActivity(i)
                             }
                             findViewById<TextView>(R.id.EtUsuario).setText("")
@@ -67,15 +88,21 @@ class IniciarSesionActivity : AppCompatActivity() {
                         }
 
                         override fun onCancelled(error: DatabaseError) {
-                            Toast.makeText(baseContext, "Error de acceso a base de datos", Toast.LENGTH_SHORT)
+                            Toast.makeText(
+                                baseContext,
+                                "Error de acceso a base de datos",
+                                Toast.LENGTH_SHORT
+                            )
                                 .show()
                         }
 
                     })
                 } else {
-                    Toast.makeText(baseContext, "Error de Email y/o Contrasena", Toast.LENGTH_SHORT)
+                    Toast.makeText(baseContext, "Error de Usuario y/o Contraseña", Toast.LENGTH_SHORT)
                         .show()
                 }
             }
     }
+
 }
+

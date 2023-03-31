@@ -51,5 +51,14 @@
         android:id="@+id/BIniciarSesion"
         android:layout_marginTop="30dp"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TVCrearC"
+        android:text="Crear una cuenta"
+        android:layout_marginTop="10dp"
+        android:textColor="#A6B1E1"
+        android:textSize="18dp"
+        />
 
 </LinearLayout>
