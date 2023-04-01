@@ -4,7 +4,36 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4964710a-ac4b-4e74-a470-5efa43a30a26" name="Changes" comment="" />
+    <list default="true" id="4964710a-ac4b-4e74-a470-5efa43a30a26" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/AgregarFicha.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/AgregarTematica.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/FichasActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/TematicaActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/adaptador/AdaptadorFicha.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/adaptador/AdaptadorTematica.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/modelo/Ficha.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/modelo/Tematica.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_agregar_ficha.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_agregar_tematica.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_fichas.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_tematica.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values-land/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values-w1240dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values-w600dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Leardeck.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Leardeck.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/values/themes.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/gisse/OneDrive/Escritorio/DSM/Leardeck/ML190271SL190836Desafio02DSM104"
+    "last_opened_file_path": "C:/Users/Jony Morales/AndroidStudioProjects/Leardeck/ML190271SL190836Desafio02DSM104"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
