@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgregarFicha">
+    tools:context=".AgregarFicha"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#424874">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ficha"
+        android:textColor="@color/purple_500"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/EtFichaE"
+        android:hint="Ingresar Enunciado"
+        android:textColor="#424874"
+        android:background="@color/purple_500"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/EtFichaR"
+        android:hint="Ingresar Respuesta"
+        android:textColor="#424874"
+        android:background="@color/purple_500"
+        android:layout_marginTop="30dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:src="@drawable/leardeck"
+        android:layout_gravity="top"
+        />
+    <Button
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar"
+        android:textColor="#424874"
+        android:id="@+id/BSeleccionarI"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textColor="#424874"
+        android:id="@+id/BGuardarF"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:textColor="#424874"
+        android:id="@+id/BCancelarF"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>

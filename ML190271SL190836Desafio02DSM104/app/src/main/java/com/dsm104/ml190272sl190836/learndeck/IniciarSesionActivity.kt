@@ -75,7 +75,7 @@ class IniciarSesionActivity : AppCompatActivity() {
                             if (name == "admin") {
                                 val i = Intent(
                                     this@IniciarSesionActivity,
-                                    AdministradorActivity::class.java
+                                    TematicaActivity::class.java
                                 )
                                 startActivity(i)
                             } else {
