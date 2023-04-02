@@ -9,6 +9,7 @@ import android.widget.ListView
 import com.dsm104.ml190272sl190836.learndeck.adaptador.AdaptadorFicha
 import com.dsm104.ml190272sl190836.learndeck.adaptador.AdaptadorFichasUsuario
 import com.dsm104.ml190272sl190836.learndeck.modelo.Ficha
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 
 private var nombreTematica = ""
@@ -53,7 +54,12 @@ class FichasuActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
-
+        val salir : FloatingActionButton = findViewById(R.id.cerrarSesion)
+        salir.setOnClickListener()
+        {
+            val i = Intent(this, TematicasuActivity::class.java)
+            startActivity(i)
+        }
         //Impresion de la lista actualiozada el tiempo real
         fichas = ArrayList<Ficha>()
 

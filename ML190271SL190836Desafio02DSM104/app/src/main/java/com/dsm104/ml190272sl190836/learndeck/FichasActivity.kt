@@ -59,6 +59,13 @@ class FichasActivity : AppCompatActivity() {
             }
         })
 
+        val salir : FloatingActionButton = findViewById(R.id.cerrarSesion)
+        salir.setOnClickListener()
+        {
+            val i = Intent(this, AgregarTematica::class.java)
+            startActivity(i)
+        }
+
         // Cuando el usuario hace un LongClic (clic sin soltar elemento por mas de 2 segundos)
         // Es por que el usuario quiere eliminar el registro
         listaFichas!!.onItemLongClickListener = object : AdapterView.OnItemLongClickListener {

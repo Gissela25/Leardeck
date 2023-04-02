@@ -96,6 +96,7 @@ class AgregarTematica : AppCompatActivity() {
     }
 
     fun cancelar(v: View?) {
-        finish()
+        val i = Intent(this, TematicaActivity::class.java)
+        startActivity(i)
     }
 }
