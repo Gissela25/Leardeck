@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import com.dsm104.ml190272sl190836.learndeck.adaptador.AdaptadorTematica
@@ -28,6 +29,10 @@ class TematicaActivity : AppCompatActivity() {
         inicializar()
     }
 
+    override fun onBackPressed() {
+        return
+    }
+
     private fun inicializar() {
         //inicializando variables
         val btnAgregarTematica: FloatingActionButton = findViewById<FloatingActionButton>(R.id.agregarTematica)
@@ -44,8 +49,6 @@ class TematicaActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
-
-
         // Cuando el usuario hace un LongClic (clic sin soltar elemento por mas de 2 segundos)
         // Es por que el usuario quiere eliminar el registro
         listaTematicas!!.onItemLongClickListener = object : AdapterView.OnItemLongClickListener {
@@ -87,7 +90,12 @@ class TematicaActivity : AppCompatActivity() {
                 return true
             }
         }
-
+        val salir : FloatingActionButton = findViewById(R.id.cerrarSesion)
+        salir.setOnClickListener()
+        {
+            val i = Intent(this, IniciarSesionActivity::class.java)
+            startActivity(i)
+        }
         // Cuando el usuario quiere agregar un nuevo registro (clic sobre el btnAgregarTematica)
         btnAgregarTematica.setOnClickListener(View.OnClickListener {
             val i = Intent(getBaseContext(), AgregarTematica::class.java)
