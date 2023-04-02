@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.dsm104.ml190272sl190836.learndeck.R
 import com.dsm104.ml190272sl190836.learndeck.modelo.Ficha
-import com.squareup.picasso.Picasso
+
 
 class AdaptadorFicha(private val context: Activity, var fichas: List<Ficha>) :
     ArrayAdapter<Ficha?>(context, R.layout.adaptador_fichas_layout, fichas) {

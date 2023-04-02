@@ -80,7 +80,7 @@ class IniciarSesionActivity : AppCompatActivity() {
                                 startActivity(i)
                             } else {
                                 val i =
-                                    Intent(this@IniciarSesionActivity, UsuariosActivity::class.java)
+                                    Intent(this@IniciarSesionActivity, TematicasuActivity::class.java)
                                 startActivity(i)
                             }
                             findViewById<TextView>(R.id.EtUsuario).setText("")
