@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgregarFicha"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#424874">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Respuesta"
+        android:textColor="@color/purple_500"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="70dp"/>
+
+    <TextView
+        android:id="@+id/txtEnunFicha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enunciado"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/txtSlnficha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Solucion"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/txtfichaHashKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:id="@+id/imgFicha"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/leardeck" />
+    <Button
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Regresar"
+        android:onClick="regresar"
+        android:textColor="#424874"
+        android:id="@+id/btnCancelarF"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>

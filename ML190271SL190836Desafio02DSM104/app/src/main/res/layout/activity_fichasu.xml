@@ -9,7 +9,7 @@
 
 
     <ListView
-        android:id="@+id/listaTematicasU"
+        android:id="@+id/listaFichasU"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
@@ -17,18 +17,5 @@
         android:padding="3dp"
         android:scrollbars="vertical"
         android:background="@color/purple_500"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/cerrarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginStart="20dp"
-        android:backgroundTint="#424874"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-        app:fabSize="normal"/>
 
 </RelativeLayout>

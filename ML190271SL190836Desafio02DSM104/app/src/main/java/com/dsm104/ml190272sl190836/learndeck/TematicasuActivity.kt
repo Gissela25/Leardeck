@@ -22,11 +22,32 @@ class TematicasuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tematicasu)
+        inicializador()
+    }
 
+    private fun inicializador() {
+        //inicializando variables
+        listaTematicas = findViewById<ListView>(R.id.listaTematicasU)
+
+        //Fichas
+        listaTematicas!!.setOnItemClickListener(object : AdapterView.OnItemClickListener {
+            override fun onItemClick(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
+                val intent = Intent(getBaseContext(), FichasuActivity::class.java)
+                intent.putExtra("nombreTematica", tematicas!![i].nombre)
+                startActivity(intent)
+            }
+        })
 
         //A partir de estas lineas de codigo se genera la lista de tematicas en pantalla
 
         tematicas = ArrayList<Tematica>()
+
+        val salir : FloatingActionButton = findViewById(R.id.cerrarSesion)
+        salir.setOnClickListener()
+        {
+            val i = Intent(this, IniciarSesionActivity::class.java)
+            startActivity(i)
+        }
 
         // Cambiarlo refProductos a consultaOrdenada para ordenar lista
         consultaOrdenada.addValueEventListener(object : ValueEventListener {
@@ -51,5 +72,10 @@ class TematicasuActivity : AppCompatActivity() {
 
             override fun onCancelled(databaseError: DatabaseError) {}
         })
+    }
+
+    companion object {
+        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        var refTematicas: DatabaseReference = database.getReference("tematicas")
     }
 }
