@@ -47,7 +47,7 @@
         android:onClick="fichas"
         android:text="Ver Fichas"
         android:textColor="#424874"
-        android:id="@+id/BFichas"
+        android:id="@+id/btnVerFichas"
         android:layout_marginTop="10dp"
         />
     <Button
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="Cancelar"
         android:textColor="#424874"
-        android:id="@+id/BCancelar"
+        android:id="@+id/btnCancelarT"
         android:layout_marginTop="10dp"
         android:onClick="cancelar"
         />

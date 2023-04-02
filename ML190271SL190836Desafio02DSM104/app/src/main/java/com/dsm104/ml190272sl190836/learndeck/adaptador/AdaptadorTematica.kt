@@ -9,7 +9,7 @@ import com.dsm104.ml190272sl190836.learndeck.R
 import com.dsm104.ml190272sl190836.learndeck.modelo.Tematica
 
 class AdaptadorTematica(private val context: Activity, var tematicas: List<Tematica>) :
-    ArrayAdapter<Tematica?>(context, R.layout.tematica_adaptador_layout, tematicas) {
+    ArrayAdapter<Tematica?>(context, R.layout.adaptador_tematica_layout, tematicas) {
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         // Método invocado tantas veces como elementos tenga la coleccion personas
         // para formar a cada item que se visualizara en la lista personalizada
@@ -19,7 +19,7 @@ class AdaptadorTematica(private val context: Activity, var tematicas: List<Temat
         // pues a partir de la segunda llamada el objeto view ya viene formado
         // y no sera necesario hacer el proceso de "inflado" que conlleva tiempo y
         // desgaste de bateria del dispositivo
-        rowview = view ?: layoutInflater.inflate(R.layout.tematica_adaptador_layout, null)
+        rowview = view ?: layoutInflater.inflate(R.layout.adaptador_tematica_layout, null)
         val tvNombre = rowview!!.findViewById<TextView>(R.id.txtNombreTematica)
         val tematicaKey = rowview!!.findViewById<TextView>(R.id.tematicaKey)
         tvNombre.text =  tematicas[position].nombre

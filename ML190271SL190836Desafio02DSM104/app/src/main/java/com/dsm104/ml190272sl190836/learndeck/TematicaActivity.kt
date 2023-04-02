@@ -29,10 +29,11 @@ class TematicaActivity : AppCompatActivity() {
     }
 
     private fun inicializar() {
+        //inicializando variables
         val btnAgregarTematica: FloatingActionButton = findViewById<FloatingActionButton>(R.id.agregarTematica)
         listaTematicas = findViewById<ListView>(R.id.listaTematicas)
 
-        // Cuando el usuario haga clic en la lista (para editar registro)
+        // Cuando el usuario haga click en la lista (para editar registro)
         listaTematicas!!.setOnItemClickListener(object : AdapterView.OnItemClickListener {
             override fun onItemClick(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
                 val intent = Intent(getBaseContext(), AgregarTematica::class.java)
@@ -57,7 +58,7 @@ class TematicaActivity : AppCompatActivity() {
                 // Preparando cuadro de dialogo para preguntar al usuario
                 // Si esta seguro de eliminar o no el registro
                 val ad = AlertDialog.Builder(this@TematicaActivity)
-                ad.setMessage("Está seguro de eliminar registro?")
+                ad.setMessage("Está seguro de eliminar registro? Se eliminarán las bichas también.")
                     .setTitle("Confirmación")
                 ad.setPositiveButton(
                     "Si"
@@ -86,7 +87,9 @@ class TematicaActivity : AppCompatActivity() {
                 return true
             }
         }
-        btnAgregarTematica.setOnClickListener(View.OnClickListener { // Cuando el usuario quiere agregar un nuevo registro
+
+        // Cuando el usuario quiere agregar un nuevo registro (clic sobre el btnAgregarTematica)
+        btnAgregarTematica.setOnClickListener(View.OnClickListener {
             val i = Intent(getBaseContext(), AgregarTematica::class.java)
             i.putExtra("accion", "a") // Agregar
             i.putExtra("key", "")
@@ -94,7 +97,7 @@ class TematicaActivity : AppCompatActivity() {
             startActivity(i)
         })
 
-        //Desde aqui
+        //A partir de estas lineas de codigo se genera la lista de tematicas en pantalla
 
         tematicas = ArrayList<Tematica>()
 
@@ -106,10 +109,10 @@ class TematicaActivity : AppCompatActivity() {
                 // Se actualiza la coleccion de personas
                 tematicas!!.removeAll(tematicas!!)
                 for (dato in dataSnapshot.getChildren()) {
-                    val persona: Tematica? = dato.getValue(Tematica::class.java)
-                    persona?.key(dato.key)
-                    if (persona != null) {
-                        tematicas!!.add(persona)
+                    val tematica: Tematica? = dato.getValue(Tematica::class.java)
+                    tematica?.key(dato.key)
+                    if (tematica != null) {
+                        tematicas!!.add(tematica)
                     }
                 }
                 val adapter = AdaptadorTematica(

@@ -14,9 +14,9 @@ import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 
 class AgregarTematica : AppCompatActivity() {
-    private var edtNombre: EditText? = null
-    private var txtHashKey: TextView? = null
-    private lateinit var btnGuardar: Button
+    private var edtTematicaNombre: EditText? = null
+    private var txtTematicaHashKey: TextView? = null
+    private lateinit var btnVerFichas: Button
     private var key = ""
     private var accion = ""
     private lateinit var database: DatabaseReference
@@ -28,47 +28,46 @@ class AgregarTematica : AppCompatActivity() {
     }
 
     private fun inicializar() {
-        edtNombre = findViewById<EditText>(R.id.edtTematicaNombre)
-        txtHashKey = findViewById<TextView>(R.id.txtTematicaHashKey)
-        btnGuardar = findViewById(R.id.btnGuardarT)
-        val edtNombre = findViewById<EditText>(R.id.edtTematicaNombre)
-        // Se ocupar para identificar la key (el nodo)
-        val txtHashKey = findViewById<TextView>(R.id.txtTematicaHashKey)
+        edtTematicaNombre = findViewById<EditText>(R.id.edtTematicaNombre)
+        txtTematicaHashKey = findViewById<TextView>(R.id.txtTematicaHashKey)
+        btnVerFichas = findViewById(R.id.btnVerFichas)
+        val edtTematicaNombre = findViewById<EditText>(R.id.edtTematicaNombre)
+        // Se ocupar para identificar la key (el nodo) y recuperar el registro para manipularlo
+        val txtTematicaHashKey = findViewById<TextView>(R.id.txtTematicaHashKey)
 
 
         // Obtención de datos que envia la actividad anterior
         val datos: Bundle? = intent.getExtras()
         if (datos != null) {
             key = datos.getString("key").toString()
-        }
-        if (datos != null) {
-            edtNombre.setText(intent.getStringExtra("nombre").toString())
-        }
-        if (datos != null) {
+            edtTematicaNombre.setText(intent.getStringExtra("nombre").toString())
             accion = datos.getString("accion").toString()
+            //Ya que utilizamo el mismo acticity para agregar y actualizar. Quitamos la visibilidad
+            //del boton ver fichas
             if (accion == "a") {
-                btnGuardar.visibility = View.INVISIBLE
+                btnVerFichas.visibility = View.INVISIBLE
+                btnVerFichas.layoutParams.width = 0
+                btnVerFichas.layoutParams.height = 0
             }
+            txtTematicaHashKey.setText(intent.getStringExtra("hashkey").toString())
         }
-        if (datos != null) {
-            txtHashKey.setText(intent.getStringExtra("hashkey").toString())
-        }
-
 
     }
 
+    //Nos redirigimos a las fichas de la tematicas seleccionada
     fun fichas(v: View?) {
         val intent = Intent(baseContext, FichasActivity::class.java)
-        intent.putExtra("hashkeyTematica", txtHashKey?.text.toString().toLowerCase())
-        intent.putExtra("nombreTematica", edtNombre?.text.toString())
+        intent.putExtra("nombreTematica",edtTematicaNombre?.text.toString())
         startActivity(intent)
     }
 
     fun guardar(v: View?) {
-        val nombre: String = edtNombre?.text.toString()
-        val actualHashkey: String = txtHashKey?.text.toString()
+        val nombre: String = edtTematicaNombre?.text.toString().trim()
+        val actualHashkey: String = txtTematicaHashKey?.text.toString().trim()
+        //creamos una llave que identifique al registro
         key = UUID.randomUUID().toString()
         val nuevohashkey = key
+        //hacemos una referencia
         database = FirebaseDatabase.getInstance().getReference("tematicas")
 
         // Se forma objeto tematica
@@ -77,7 +76,7 @@ class AgregarTematica : AppCompatActivity() {
         if (accion == "a") { //Agregar registro
 
             database.child(key).setValue(tematica).addOnSuccessListener {
-                Toast.makeText(this, "Se guardo con exito", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Se guardó con exito", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 Toast.makeText(this, "Failed ", Toast.LENGTH_SHORT).show()
             }
