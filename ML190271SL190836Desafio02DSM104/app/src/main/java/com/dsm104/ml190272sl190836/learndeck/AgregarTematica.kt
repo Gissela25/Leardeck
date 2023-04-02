@@ -57,7 +57,7 @@ class AgregarTematica : AppCompatActivity() {
     //Nos redirigimos a las fichas de la tematicas seleccionada
     fun fichas(v: View?) {
         val intent = Intent(baseContext, FichasActivity::class.java)
-        intent.putExtra("nombreTematica",edtTematicaNombre?.text.toString())
+        intent.putExtra("nombreTematica",txtTematicaHashKey?.text.toString())
         startActivity(intent)
     }
 
