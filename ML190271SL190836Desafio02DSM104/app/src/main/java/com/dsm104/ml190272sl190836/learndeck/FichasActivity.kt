@@ -53,6 +53,7 @@ class FichasActivity : AppCompatActivity() {
                 intent.putExtra("enunciado",fichas!![i].enunciado )
                 intent.putExtra("solucion", fichas!![i].solucion)
                 intent.putExtra("hashkeyFicha", fichas!![i].hashkeyFicha)
+                intent.putExtra("imgUrl",fichas!![i].imgUrl)
                 intent.putExtra("nombreTematica", nombreTematica)
                 startActivity(intent)
             }

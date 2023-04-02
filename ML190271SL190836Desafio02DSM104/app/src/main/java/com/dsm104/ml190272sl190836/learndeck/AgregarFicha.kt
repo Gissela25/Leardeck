@@ -26,6 +26,7 @@ private lateinit var database: DatabaseReference
 private lateinit var storage: FirebaseStorage
 private lateinit var storageReference: StorageReference
 private var hashparaImg = ""
+private var sImageurl:String? = null
 private var edtEnun: EditText? = null
 private var edtSln: EditText? = null
 private var txtFichaHashKey: TextView? = null
@@ -81,8 +82,9 @@ class AgregarFicha : AppCompatActivity() {
         }
         if(datos != null)
         {
-            if (sImage != null && sImage!!.isNotEmpty()) {
-                Picasso.get().load(sImage).into(imgFicha)
+            sImageurl  = datos.getString("imgUrl").toString()
+            if (sImageurl != null && sImageurl!!.isNotEmpty()) {
+                Picasso.get().load(sImageurl).into(imgFicha)
             }
         }
 
@@ -97,6 +99,10 @@ class AgregarFicha : AppCompatActivity() {
         val nuevohashkeyFicha = key
         var raiz = "fichas/$nombreTematica"
         database = FirebaseDatabase.getInstance().getReference(raiz)
+        if (enunciado.isEmpty() || solucion.isEmpty()) {
+            Toast.makeText(this, "El enunciado y la solución no pueden estar vacíos", Toast.LENGTH_SHORT).show()
+            return
+        }
 
 
         if (accion == "a") { //Agregar registro
@@ -108,34 +114,18 @@ class AgregarFicha : AppCompatActivity() {
             }
         } else  // Editar registro
         {
-            val temporalUrl = "https://www.adobe.com/es/express/feature/image/media_16ad2258cac6171d66942b13b8cd4839f0b6be6f3.png?width=750&format=png&optimize=medium"
-            val ficha = Ficha(enunciado, solucion, nuevohashkeyFicha, temporalUrl )
+            val ficha = Ficha(enunciado, solucion, nuevohashkeyFicha, imarefURl )
             val refEspecifica = database.child(actualHashkeyFicha)
             if (key == null) {
                 Toast.makeText(this, "Llave vacia", Toast.LENGTH_SHORT).show()
             }
             val childUpdates = hashMapOf<String, Any>(
                 "enunciado" to "$enunciado",
-                "solucion" to "$solucion"
+                "solucion" to "$solucion",
+                "imgUrl" to "$imarefURl"
             )
-
-            if (imagenUri != null) { // Si se seleccionó una imagen, guardarla
-                val storageRef = FirebaseStorage.getInstance().reference.child("fichas/$nombreTematica/$hashparaImg.jpg")
-                storageRef.putFile(imagenUri!!)
-                    .addOnSuccessListener {
-                        storageRef.downloadUrl.addOnSuccessListener { uri ->
-                            childUpdates["imagen"] = uri.toString() // Agregar la URL de la imagen en childUpdates
-                            refEspecifica.updateChildren(childUpdates)
-                            Toast.makeText(this, "Se actualizo con exito", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Error al guardar la imagen", Toast.LENGTH_SHORT).show()
-                    }
-            } else { // Si no se seleccionó una imagen, actualizar sin imagen
-                refEspecifica.updateChildren(childUpdates)
-                Toast.makeText(this, "Se actualizo con exito", Toast.LENGTH_SHORT).show()
-            }
+            refEspecifica.updateChildren(childUpdates)
+            Toast.makeText(this,"Se actualizo con exito", Toast.LENGTH_SHORT).show()
         }
         finish()
     }
@@ -159,7 +149,7 @@ class AgregarFicha : AppCompatActivity() {
             if (accion == "a") {
                 fileRef = storageReference.child("fichas/$nombreTematica/$hashparaImg.jpg")
             } else if (accion == "e") {
-                fileRef = storageReference.child("images_case_e/${UUID.randomUUID()}")
+                fileRef = storageReference.child("fichas/$nombreTematica/$hashparaImg.jpg")
             } else {
                 // handle unknown request code
                 return
@@ -182,6 +172,11 @@ class AgregarFicha : AppCompatActivity() {
                     }
             }
         }
+
+        else{
+            imarefURl = null
+        }
+
     }
 
 }

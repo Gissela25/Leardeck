@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4964710a-ac4b-4e74-a470-5efa43a30a26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/FichasuActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/MostrarContenidoFicha.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/adaptador/AdaptadorFichasUsuario.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_fichasu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_mostrar_contenido_ficha.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/adaptador_fichasu_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/TematicasuActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/TematicasuActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_tematicasu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/res/layout/activity_tematicasu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/AgregarFicha.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/AgregarFicha.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/FichasActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ML190271SL190836Desafio02DSM104/app/src/main/java/com/dsm104/ml190272sl190836/learndeck/FichasActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
